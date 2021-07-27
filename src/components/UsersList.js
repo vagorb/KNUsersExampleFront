@@ -113,12 +113,6 @@ const UsersList = () => {
                             </label>{" "}
                             {currentUser.firstName}
                         </div>
-                        {/*<div>*/}
-                        {/*    <label>*/}
-                        {/*        <strong>Status:</strong>*/}
-                        {/*    </label>{" "}*/}
-                        {/*    {currentTutorial.published ? "Published" : "Pending"}*/}
-                        {/*</div>*/}
                         <div>
                             <label>
                                 <strong>Last Name:</strong>
