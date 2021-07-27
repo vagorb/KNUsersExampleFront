@@ -11,7 +11,7 @@ function App() {
     return (
         <Router>
             <nav className="navbar navbar-expand navbar-dark bg-dark">
-                <a href="/users" className="navbar-brand">
+                <a href={"/users"} className="navbar-brand">
                     Users
                 </a>
                 <div className="navbar-nav mr-auto">

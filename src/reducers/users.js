@@ -3,7 +3,7 @@ import {
     RETRIEVE_USERS,
     UPDATE_USER,
     DELETE_USER,
-
+    DELETE_ALL_USERS
 } from "../actions/types";
 
 const initialState = [];
@@ -33,8 +33,8 @@ function userReducer(users = initialState, action) {
         case DELETE_USER:
             return users.filter(({ id }) => id !== payload.id);
 
-        // case DELETE_ALL_TUTORIALS:
-        //     return [];
+        case DELETE_ALL_USERS:
+            return [];
 
         default:
             return users;

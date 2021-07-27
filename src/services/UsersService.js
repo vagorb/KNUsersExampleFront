@@ -20,13 +20,13 @@ const remove = id => {
     return http.delete(`/users/${id}`);
 };
 
-// const removeAll = () => {
-//     return http.delete(`/tutorials`);
-// };
-//
-// const findByTitle = title => {
-//     return http.get(`/tutorials?title=${title}`);
-// };
+const removeAll = () => {
+    return http.delete(`/userss`);
+};
+
+const findByUsername = username => {
+    return http.get(`/users?username=${username}`);
+};
 
 const UserService = {
     getAll,
@@ -34,8 +34,8 @@ const UserService = {
     create,
     update,
     remove,
-    // removeAll,
-    // findByTitle
+    removeAll,
+    findByUsername
 };
 
 export default UserService;

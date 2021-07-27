@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import {Link} from "react-router-dom"
 import {
     retrieveUsers,
-    // findTutorialsByTitle,
-    // deleteAllTutorials,
+    findUserByUsername,
+    deleteAllUsers,
 } from "../actions/users";
 
 const UsersList = () => {
     const [currentUser, setCurrentUser] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(-1);
-    // const [searchTitle, setSearchTitle] = useState("");
+    const [searchUser, setSearchUser] = useState("");
 
     const users = useSelector(state => state.users);
     const dispatch = useDispatch();
@@ -19,10 +19,10 @@ const UsersList = () => {
         dispatch(retrieveUsers());
     }, []);
 
-    // const onChangeSearchTitle = e => {
-    //     const searchTitle = e.target.value;
-    //     setSearchTitle(searchTitle);
-    // };
+    const onChangeSearchUser = e => {
+        const searchUser = e.target.value;
+        setSearchUser(searchUser);
+    };
 
     const refreshData = () => {
         setCurrentUser(null);
@@ -34,44 +34,44 @@ const UsersList = () => {
         setCurrentIndex(index);
     };
 
-    // const removeAllTutorials = () => {
-    //     dispatch(deleteAllTutorials())
-    //         .then(response => {
-    //             console.log(response);
-    //             refreshData();
-    //         })
-    //         .catch(e => {
-    //             console.log(e);
-    //         });
-    // };
+    const removeAllUsers = () => {
+        dispatch(deleteAllUsers())
+            .then(response => {
+                console.log(response);
+                refreshData();
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
 
-    // const findByTitle = () => {
-    //     refreshData();
-    //     dispatch(findTutorialsByTitle(searchTitle));
-    // };
+    const findByUsername = () => {
+        refreshData();
+        dispatch(findUserByUsername(searchUser));
+    };
 
     return (
         <div className="list row">
-            {/*<div className="col-md-8">*/}
-            {/*    <div className="input-group mb-3">*/}
-            {/*        <input*/}
-            {/*            type="text"*/}
-            {/*            className="form-control"*/}
-            {/*            placeholder="Search by title"*/}
-            {/*            value={searchUser}*/}
-            {/*            onChange={onChangeSearchTitle}*/}
-            {/*        />*/}
-            {/*        <div className="input-group-append">*/}
-            {/*            <button*/}
-            {/*                className="btn btn-outline-secondary"*/}
-            {/*                type="button"*/}
-            {/*                onClick={findByTitle}*/}
-            {/*            >*/}
-            {/*                Search*/}
-            {/*            </button>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+            <div className="col-md-8">
+                <div className="input-group mb-3">
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Search by username"
+                        value={searchUser}
+                        onChange={onChangeSearchUser}
+                    />
+                    <div className="input-group-append">
+                        <button
+                            className="btn btn-outline-secondary"
+                            type="button"
+                            onClick={findByUsername}
+                        >
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </div>
             <div className="col-md-6">
                 <h4>Users List</h4>
 
@@ -90,12 +90,12 @@ const UsersList = () => {
                     ))}
                 </ul>
 
-                {/*<button*/}
-                {/*    className="m-3 btn btn-sm btn-danger"*/}
-                {/*    onClick={removeAllTutorials}*/}
-                {/*>*/}
-                {/*    Remove All*/}
-                {/*</button>*/}
+                <button
+                    className="m-3 btn btn-sm btn-danger"
+                    onClick={removeAllUsers}
+                >
+                    Remove All
+                </button>
             </div>
             <div className="col-md-6">
                 {currentUser ? (
