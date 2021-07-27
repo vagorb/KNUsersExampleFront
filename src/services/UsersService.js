@@ -21,7 +21,7 @@ const remove = id => {
 };
 
 const removeAll = () => {
-    return http.delete(`/userss`);
+    return http.delete(`/users`);
 };
 
 const findByUsername = username => {
