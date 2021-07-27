@@ -20,7 +20,7 @@ const AddUser = () => {
         setUser({ ...user, [name]: value });
     };
 
-    const saveTutorial = () => {
+    const saveUser = () => {
         const { username, firstName, lastName, email } = user;
 
         dispatch(createUser(username, firstName, lastName, email))
@@ -109,7 +109,7 @@ const AddUser = () => {
                         />
                     </div>
 
-                    <button onClick={saveTutorial} className="btn btn-success">
+                    <button onClick={saveUser} className="btn btn-success">
                         Submit
                     </button>
                 </div>

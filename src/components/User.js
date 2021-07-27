@@ -36,26 +36,26 @@ const User = (props) => {
         setCurrentUser({ ...currentUser, [name]: value });
     };
 
-    // const updateStatus = status => {
-    //     const data = {
-    //         id: currentUser.id,
-    //         username: data.username,
-    //         firstName: data.firstName,
-    //         lastName: data.lastName,
-    //         email: data.email
-    //     };
-    //
-    //     dispatch(updateUser(currentUser.id, data))
-    //         .then(response => {
-    //             console.log(response);
-    //
-    //             setCurrentUser({ ...currentUser, published: status });
-    //             setMessage("The status was updated successfully!");
-    //         })
-    //         .catch(e => {
-    //             console.log(e);
-    //         });
-    // };
+    const updateStatus = status => {
+        const data = {
+            id: currentUser.id,
+            username: currentUser.username,
+            firstName: currentUser.firstName,
+            lastName: currentUser.lastName,
+            email: currentUser.email
+        };
+
+        dispatch(updateUser(currentUser.id, data))
+            .then(response => {
+                console.log(response);
+
+                setCurrentUser({ ...currentUser, published: status });
+                setMessage("The status was updated successfully!");
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
 
     const updateContent = () => {
         dispatch(updateUser(currentUser.id, currentUser))
@@ -138,21 +138,21 @@ const User = (props) => {
                         </div>
                     </form>
 
-                    {/*{currentUser.published ? (*/}
-                    {/*    <button*/}
-                    {/*        className="badge badge-primary mr-2"*/}
-                    {/*        onClick={() => updateStatus(false)}*/}
-                    {/*    >*/}
-                    {/*        UnPublish*/}
-                    {/*    </button>*/}
-                    {/*) : (*/}
-                    {/*    <button*/}
-                    {/*        className="badge badge-primary mr-2"*/}
-                    {/*        onClick={() => updateStatus(true)}*/}
-                    {/*    >*/}
-                    {/*        Publish*/}
-                    {/*    </button>*/}
-                    {/*)}*/}
+                    {currentUser.published ? (
+                        <button
+                            className="badge badge-primary mr-2"
+                            onClick={() => updateStatus(false)}
+                        >
+                            UnPublish
+                        </button>
+                    ) : (
+                        <button
+                            className="badge badge-primary mr-2"
+                            onClick={() => updateStatus(true)}
+                        >
+                            Publish
+                        </button>
+                    )}
 
                     <button className="badge badge-danger mr-2" onClick={removeUser}>
                         Delete

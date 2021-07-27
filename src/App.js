@@ -12,7 +12,7 @@ function App() {
         <Router>
             <nav className="navbar navbar-expand navbar-dark bg-dark">
                 <a href="/users" className="navbar-brand">
-                    users
+                    Users
                 </a>
                 <div className="navbar-nav mr-auto">
                     <li className="nav-item">

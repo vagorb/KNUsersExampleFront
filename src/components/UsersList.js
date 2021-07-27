@@ -29,7 +29,7 @@ const UsersList = () => {
         setCurrentIndex(-1);
     };
 
-    const setActiveTutorial = (user, index) => {
+    const setActiveUser= (user, index) => {
         setCurrentUser(user);
         setCurrentIndex(index);
     };
@@ -73,7 +73,7 @@ const UsersList = () => {
             {/*    </div>*/}
             {/*</div>*/}
             <div className="col-md-6">
-                <h4>Tutorials List</h4>
+                <h4>Users List</h4>
 
                 <ul className="list-group">
                     {users &&
@@ -82,7 +82,7 @@ const UsersList = () => {
                             className={
                                 "list-group-item " + (index === currentIndex ? "active" : "")
                             }
-                            onClick={() => setActiveTutorial(user, index)}
+                            onClick={() => setActiveUser(user, index)}
                             key={index}
                         >
                             {user.username}
@@ -142,7 +142,7 @@ const UsersList = () => {
                 ) : (
                     <div>
                         <br />
-                        <p>Please click on a Tutorial...</p>
+                        <p>Please click on a User...</p>
                     </div>
                 )}
             </div>
